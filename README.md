@@ -182,5 +182,6 @@ put chat.txt
 ## 5. Conclusion
 
 ## 6. Ressources
+[Markdown Cheat Sheet](#https://www.markdownguide.org/cheat-sheet/)
 
 
