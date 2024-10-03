@@ -15,7 +15,18 @@ SSH offers a number of features : encryption of exchanged data, authenticated ac
 SSH replaces less secure protocols such as Telnet.
 
 ## 2. Operations on Linux distributions
-Befor you start, you must have <span title="Root refers to the primary or superuser account which has complete administrative privileges, allowing it to perform any operation on the system">Root</span> access to a remote computer system, such as a physical server or a Virtual Private Server (VPS).
+Before you start, you must have **root mode access** to a remote computer system, such as a physical server or a Virtual Private Server (VPS).
+
+**Root** refers to the primary or superuser account which has complete administrative privileges, allowing it to perform any operation on the system.
+
+### Create a personal user account
+Open a Terminal - also known as Shell or Command Line Interface - on your local Operating System.
+
+Then, type in the command prompt :
+```
+ssh root@ip_address
+```
+Press ENTER after each command line.
 
 ## 3. Problems encountered and found solutions
 
