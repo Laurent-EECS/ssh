@@ -23,24 +23,24 @@ Before you start, you must have **root mode access** to a remote computer system
 Open a Terminal - also known as a shell or a Command Line Interface - on your local Operating System.
 
 Then, type in the command prompt :
-
-(press ENTER after each command line or after responding to a Terminal request)
 ```
 ssh root@ip_address
 ```
-The *ip_address* field corresponds to the public IP address of your remote computer system, for example *70.80.90.10*. A domain name also works if exists ! In that case, we can type *@remoteserver.com* instead of *@70.80.90.10*.
-
 Type the password attached to the **root** of your remote computer system and press ENTER.
+
+Always press ENTER after a command line or in response to a Terminal request.
+
+Note that the *ip_address* field corresponds to the public IP address of your remote computer, for example *70.80.90.10*. A domain name also works if exists ! In that case, we can type *@remoteserver.com* instead of *@70.80.90.10* if our remote computer system has the domain name *remoteserver.com*.
 
 **You must now be connected on your remote computer system as root !**
 
-Then, type the following command line to create your user account :
+Then, type the following command line to create your personal user account :
 ```
 adduser user_name
 ```
-Here too, user_name corresponds to the username you choose for your account, for example *jane*.
+Here too, *user_name* corresponds to the username you will choose for your personal account, for example *jane*.
 
-Type a chosen password for your acccount. Retype your password to confirm !
+Type a chosen password for your personal user acccount. Retype your password to confirm !
 
 The Terminal allows you to enter optionnal values such as *Full name*, *Room number*, and more. You can pass these steps by typing ENTER and set default values.
 
@@ -50,12 +50,12 @@ Is the information correct? [Y/n]
 ```
 When a Terminal request is made, the uppercase value is the chosen one if you press ENTER without typing anything.
 
-Before logging out, you need to extend your privileges for your personnal account ! You will need them to manage the SSH configuration.
+Before logging out, you need to extend your privileges for your personnal account ! You will need them to manage the SSH configuration !
 
 **WE NEVER USE THE ROOT ACCOUNT TO OPERATE ON A SYSTEM ! SAFETY ISSUE !**
 
 ### 2.2. Extend your privileges for your user account
-As **root**, type the command :
+As **root**, type the command line :
 ```
 visudo
 ```
@@ -82,7 +82,16 @@ You can now access your remote computer system with the command :
 ```
 ssh user_name@ip_address
 ```
-Type the chosen password for your personal user account !
+Type the password chosen before for your personal user account ! You are now connected to your remote computer system as *user_name* !
+
+If you want, you can type a few commands to find out which account you are logged in with :
+```
+whoami
+```
+And to find out which directory you are in :
+```
+pwd
+```
 
 ## 3. Problems encountered and found solutions
 
