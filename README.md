@@ -93,7 +93,7 @@ And to find out which directory you are in :
 pwd
 ```
 ### 2.3. SSH key authentication
-On your local Operating System - type *exit* if you are still connected to your remote computer system - type the command line :
+On your local computer system - type *exit* if you are still connected to your remote computer system - type the command line :
 ```
 ssh-keygen -t ed25519
 ```
@@ -116,7 +116,7 @@ ssh user_name@ip_address
 From now on, the Terminal will ask you to type your passphrase to access the remote computer system !
 
 ### 2.4. Disable access via the user account password
-Now that we can access the remote computer system with SSH key authentication, we want to block access using the user account password. This means that only the local Operating System with the SSH private key will be able to connect to the remote computer system !
+Now that we can access the remote computer system with SSH key authentication, we want to block access using the user account password. This means that only the local computer system with the SSH private key will be able to connect to the remote computer system !
 
 To do this, we need to open the SSH configuration file */etc/ssh/sshd_config* and change some parameters :
 ```
@@ -131,14 +131,50 @@ Uncomment *PasswordAuthentication* and change the value to *no* :
 ```
 PasswordAuthentication no
 ```
-Press CTRL+X, then Y, then ENTER.
+Press CTRL+X, then Y, then ENTER to save the file with the new configuration.
 
 Restart the SSH service with the command line :
 ```
 sudo systemctl restart ssh
 ```
 ### 2.5. File Transfer with SCP (Secure Copy Protocol) and SFTP (Secure File Transfer Protocol)
+On your local computer system, create a new file named *chat.txt* with the command line :
+```
+echo miaou > chat.txt
+```
+Then, type :
+```
+cat chat.txt
+```
+*miaou* is displayed in the Terminal ^^
 
+We now want to transfer *chat.txt* file to the remote computer system !
+
+**Use SCP with the command line :**
+```
+scp chat.txt user_name@ip_address:/home/user_name/
+```
+The *chat.txt* file will be copy in the directory */home/user_name/* of the remote computer.
+
+You can check with the command :
+```
+ssh user_name@ip_address "ls /home/user_name/"
+```
+The command *ssh user_name@ip-address ls /home/user_name/* seems to work too.
+
+**Use SFTP with the command line from the directory where the fil you want to transfer is :**
+```
+sftp user_name@ip_address
+```
+It opens a channel between the two computers :
+```
+Connected to ip_address.
+sftp> 
+```
+You can navigate in the remote system with the *cd* command (Change Directory) and copy the *chat.txt* file where you want by using the command :
+```
+put chat.txt
+```
 ## 3. Problems encountered and found solutions
 
 ## 4. Theory
