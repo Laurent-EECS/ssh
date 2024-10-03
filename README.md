@@ -107,6 +107,8 @@ You must now copy your SSH public key on the remote computer system with the com
 ```
 ssh-copy-id user_name@ip_address
 ```
+The SSH public key is copied in the file */home/user_name/.ssh/authorized_keys*
+
 Try now to connect to the remote computer system with your personal user account :
 ```
 ssh user_name@ip_address
