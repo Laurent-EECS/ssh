@@ -202,7 +202,7 @@ nmap localhost
 Now, on the local computer system, we can use the following command to redirect the chosen port, for example the port 8080 :
 ```
 ssh -L 8080:localhost:80 user_name@ip_address
-```*
+```
 On the local computer system, open a web browser and type *localhost:8080* in the address bar, you should read Welcome to nginx!*
 
 ## 3. Problems encountered and found solutions
