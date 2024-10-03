@@ -8,6 +8,7 @@
 6. [Ressources](#6-ressources)
 
 ## 1. Introduction
+The Secure Shell protocol, commonly called SSH, is a secured communication protocol used to access a remote computer like a server
 
 ## 2. Manipulation List
 
