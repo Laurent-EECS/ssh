@@ -162,7 +162,7 @@ ssh user_name@ip_address "ls /home/user_name/"
 ```
 The command *ssh user_name@ip-address ls /home/user_name/* seems to work too.
 
-**Use SFTP with the command line from the directory where the fil you want to transfer is :**
+**Use SFTP with the command line below from the directory where the file you want to transfer is :**
 ```
 sftp user_name@ip_address
 ```
@@ -174,6 +174,16 @@ sftp>
 You can navigate in the remote system with the *cd* command (Change Directory) and copy the *chat.txt* file where you want by using the command :
 ```
 put chat.txt
+```
+### 2.6. Port forwarding
+With SSH, you can link a localhost port to a port of your remote computer system. This is often used in the case of a web service.
+
+On the remote computer system, we must to install first a web service such as *Nginx* ou *Apache*.
+```
+# Update the package index on a Debian-based Linux distribution
+sudo apt-get update
+# Install the web service Nginx
+sudo apt-get install nginx
 ```
 ## 3. Problems encountered and found solutions
 
