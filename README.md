@@ -101,12 +101,17 @@ Then, press ENTER to validate the directory in which the 2 SSH keys will be gene
 
 Choose a passphrase, confirm the passphrase !
 
-Your SSH private key and your SSH public key are now in the directory */home/user_name/.ssh/* with the names *id_25519* and *id25519.pub* for the public key !
+Your SSH private key and your SSH public key are now in your local directory */home/user_name/.ssh/* with the names *id_25519* and *id25519.pub* for the SSH public key !
 
-You must now copy your SSH public key on your remote computer system with the command :
+You must now copy your SSH public key on the remote computer system with the command line below :
 ```
 ssh-copy-id user_name@ip_address
 ```
+Try now to connect to the remote computer system with your personal user account :
+```
+ssh user_name@ip_address
+```
+The Terminal will ask you to type your passphrase to connect !
 
 ## 3. Problems encountered and found solutions
 
