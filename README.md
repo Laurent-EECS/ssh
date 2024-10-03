@@ -55,14 +55,34 @@ Before logging out, you need to extend your privileges for your personnal accoun
 **WE NEVER USE THE ROOT ACCOUNT TO OPERATE ON A SYSTEM ! SAFETY ISSUE !**
 
 ### 2.2. Extend your privileges for your user account
-As **root**, type the command line :
+As **root**, type the command :
 ```
 visudo
 ```
+The command opens a configuration text file */etc/sudoers.tmp* in your Terminal.
 
+Go to the section :
+```
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+```
+Add the line *user_name* as below :
+```
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+user_name    ALL=(ALL:ALL) ALL
+```
+Press CTRL+X to exit and save the modification of the file, press Y to validate then ENTER to confirm.
 
-
-
+After this operation, you can logout from **root**  by typing *exit* or *logout* :
+```
+exit
+```
+You can now access your remote computer system with the command :
+```
+ssh user_name@ip_address
+```
+Type the chosen password for your personal user account !
 
 ## 3. Problems encountered and found solutions
 
