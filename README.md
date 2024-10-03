@@ -8,7 +8,11 @@
 6. [Ressources](#6-ressources)
 
 ## 1. Introduction
-The Secure Shell protocol, commonly called SSH, is a secured communication protocol used to access a remote computer like a server
+The Secure Shell protocol, commonly called SSH, is a secure communication protocol used to access and execute commands on a remote computer such as a server.
+
+SSH offers a number of features : encryption of exchanged data, authenticated access, tunneling, port forwarding, secure file transfer and more.
+
+SSH replaces less secure protocols such as Telnet.
 
 ## 2. Manipulation List
 
