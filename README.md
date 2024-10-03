@@ -1,13 +1,13 @@
 # SECURE SHELL PROTOCOL : SSH
 
-- [Introduction](#introduction)
-- [Manipulation List](#manipulation-list)
-- [Problems encountered and found solutions](#problems-encountered-and-found-solutions)
-- [Theory](#theory)
-- [Conclusion](#conclusion)
-- [Ressources](#ressources)
+1. [Introduction](#I-introduction)
+2. [Manipulation List](#manipulation-list)
+3. [Problems encountered and found solutions](#problems-encountered-and-found-solutions)
+4. [Theory](#theory)
+5. [Conclusion](#conclusion)
+6. [Ressources](#ressources)
 
-## Introduction
+## I. Introduction
 
 ## Manipulation List
 
