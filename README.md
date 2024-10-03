@@ -1,22 +1,22 @@
 # SECURE SHELL PROTOCOL : SSH
 
-1. [Introduction](#introduction)
-2. [Manipulation List](#manipulation-list)
-3. [Problems encountered and found solutions](#problems-encountered-and-found-solutions)
-4. [Theory](#theory)
-5. [Conclusion](#conclusion)
-6. [Ressources](#ressources)
+- [Introduction](#introduction)
+- [Manipulation List](#manipulation-list)
+- [Problems encountered and found solutions](#problems-encountered-and-found-solutions)
+- [Theory](#theory)
+- [Conclusion](#conclusion)
+- [Ressources](#ressources)
 
-## 1. Introduction
+## Introduction
 
-## 2. Manipulation List
+## Manipulation List
 
-## 3. Problems encountered and found solutions
+## Problems encountered and found solutions
 
-## 4. Theory
+## Theory
 
-## 5. Conclusion
+## Conclusion
 
-## 6. Ressources{#ressources}
+## Ressources
 
 
