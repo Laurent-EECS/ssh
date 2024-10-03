@@ -176,7 +176,7 @@ You can navigate in the remote system with the *cd* command (Change Directory) a
 put chat.txt
 ```
 ### 2.6. Port forwarding
-With SSH, you can link a localhost port to a port of your remote computer system. This is often used in the case of a web service.
+With SSH, you can redirect a localhost port to a port of your remote computer system. This is often used in the case of a web server.
 
 On the remote computer system, we must to install first a web service such as *Nginx* ou *Apache*.
 ```
@@ -184,7 +184,22 @@ On the remote computer system, we must to install first a web service such as *N
 sudo apt-get update
 # Install the web service Nginx
 sudo apt-get install nginx
+# To know Nginx status
+service nginx status
 ```
+The install of a web service opens the port 80 of the remote computer system. You can check with the commads below :
+```
+# Install network tools
+sudo apt-get install net-tools
+# List listenning ports
+netstat -tuln
+# Install nmap
+sudo apt-get install nmap
+# Scan localhost port
+nmap localhost
+```
+
+Now, on the local computer system, we can 
 ## 3. Problems encountered and found solutions
 
 ## 4. Theory
