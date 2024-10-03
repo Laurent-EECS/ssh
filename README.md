@@ -1,4 +1,4 @@
-# HOW TO CREATE A SSH TUNNEL BETWEEN A PERSONNAL COMPUTER AND A REMOTE SERVER
+# SSH PROTOCOL
 
 1. [Introduction](#introduction)
 2. [Manipulation List](#manipulation-list)
