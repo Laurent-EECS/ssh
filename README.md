@@ -82,7 +82,7 @@ You can now access your remote computer system with the command :
 ```
 ssh user_name@ip_address
 ```
-Type the password chosen before for your personal user account ! You are now connected to your remote computer system as *user_name* !
+Type the password chosen before for your personal user account. You are now connected to your remote computer system as *user_name* !
 
 If you want, you can type a few commands to test the connection and find out which account you are logged in with :
 ```
@@ -92,7 +92,7 @@ And to find out which directory you are in :
 ```
 pwd
 ```
-### 2.3 SSH key authentication
+### 2.3. SSH key authentication
 On your local Operating System - type *exit* if you are still connected to your remote computer system - type the command line :
 ```
 ssh-keygen -t ed25519
@@ -101,7 +101,7 @@ Then, press ENTER to validate the directory in which the 2 SSH keys will be gene
 
 Choose a passphrase, confirm the passphrase !
 
-Your SSH private key and your SSH public key are now in your local directory */home/user_name/.ssh/* with the names *id_25519* and *id25519.pub* for the SSH public key !
+Your SSH private key and your SSH public key are now in your local directory */home/user_name/.ssh/* with the names *id_25519* and *id25519.pub* for the SSH public key.
 
 You must now copy your SSH public key on the remote computer system with the command line below :
 ```
@@ -113,7 +113,31 @@ Try now to connect to the remote computer system with your personal user account
 ```
 ssh user_name@ip_address
 ```
-The Terminal will ask you to type your passphrase to connect !
+From now on, the Terminal will ask you to type your passphrase to access the remote computer system !
+
+### 2.4. Disable access via the user account password
+Now that we can access the remote computer system with SSH key authentication, we want to block access using the user account password. This means that only the local Operating System with the SSH private key will be able to connect to the remote computer system !
+
+To do this, we need to open the SSH configuration file */etc/ssh/sshd_config* and change some parameters :
+```
+sudo nano /etc/ssh/sshd_config
+```
+Go to the section :
+```
+# To disable tunneled clear text passwords, change to no here!
+# PasswordAuthentication yes
+```
+Uncomment *PasswordAuthentication* and change the value to *no* :
+```
+PasswordAuthentication no
+```
+Press CTRL+X, then Y, then ENTER.
+
+Restart the SSH service with the command line :
+```
+sudo systemctl restart ssh
+```
+### 2.5. File Transfer with SCP (Secure Copy Protocol) and SFTP (Secure File Transfer Protocol)
 
 ## 3. Problems encountered and found solutions
 
