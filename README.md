@@ -260,7 +260,21 @@ Configure Fail2ban for SSH :
 ```
 # Open Fail2ban configuration file
 sudo nano /etc/fail2ban/jail.local
-
+# Add rules for jail
+[sshd]
+enabled = true
+port = 2222
+# Restart the service for updating the configuration
+sudo systemctl restart fail2ban
+```
+To find out banned IP list :
+```
+sudo fail2ban-server status sshd
+```
+To re-authorise an IP address :
+```
+sudo fail2ban-client set sshd unbanip IP_number
+```
 ## 3. Problems encountered and found solutions
 - Connection error
 - Nginx problem
