@@ -231,12 +231,36 @@ To connect to the remote computer system, use the new command line :
 # SSH access via port 2222
 ssh -p 2222 user_name@ip_address
 ```
-The previous one won't work anymore !
+The previous one (ssh user_name@ip_address) won't work anymore !
 
 For the port forwarding, the command line becomes :
 ```
 ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
 ```
+### 2.8. More protection with UFW (Uncomplicated FireWall)
+We can add an extra layer of security with the FireWall UFW :
+```
+# Enable UFW
+sudo ufw enable
+# To view permissions
+sudo ufw status
+# To allow communication on the port 2222 (for SSH)
+sudo ufw allow 2222
+# We can add ports 80 and 443 for http and https requests
+sudo ufw allow 80
+sudo ufw allow 443
+```
+### 2.9. Fail2ban
+Fail2ban protects the remote computer system by blocking IP addresses that would force a connection by trying multiple passwords.
+```
+sudo apt-get update
+sudo apt-get install fail2ban
+```
+Configure Fail2ban for SSH :
+```
+# Open Fail2ban configuration file
+sudo nano /etc/fail2ban/jail.local
+
 ## 3. Problems encountered and found solutions
 - Connection error
 - Nginx problem
