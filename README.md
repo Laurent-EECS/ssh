@@ -290,7 +290,7 @@ Select a network interface for analysis, such as eth0 (ethernet), wlan0 (Wifi).
 ip link
 ```
 You can filter results at the top of the Wireshark window.
-Try tcp.port==2222 to analyse your SSH connection and communication.
+Try *tcp.port==2222* to analyse your SSH connection and communication.
 Try to connect on your remote computer system via port 2222 and see how Wireshark reacts.
 
 To analyse what happens on the remote computer, you can install tshark (Wireshark for Terminal) :
@@ -368,5 +368,3 @@ Wireshark shows that the SSH protocol generates an extremely large number of pac
 ## 6. Ressources
 - [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 - [Mistral AI](https://mistral.ai/fr/)
-
-: 0x9e4e736a6eb42397be3d084956d623963e57ad38:
