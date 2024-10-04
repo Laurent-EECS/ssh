@@ -133,9 +133,10 @@ PasswordAuthentication no
 ```
 Press CTRL+X, then Y, then ENTER to save the file with the new configuration.
 
-Restart the SSH service with the command line :
+Restart the SSH service with the command lines :
 ```
-sudo systemctl restart ssh
+sudo systemctl stop ssh && sudo systemctl disable ssh
+sudo systemctl enable ssh && sudo systemctl start ssh
 ```
 ### 2.5. File Transfer with SCP (Secure Copy Protocol) and SFTP (Secure File Transfer Protocol)
 On your local computer system, create a new file named *chat.txt* with the command line :
@@ -195,7 +196,7 @@ sudo apt-get install net-tools
 netstat -tuln
 # Install nmap
 sudo apt-get install nmap
-# Scan localhosts port
+# Scan localhoss ports
 nmap localhost
 ```
 
@@ -203,9 +204,43 @@ Now, on the local computer system, we can use the following command to redirect 
 ```
 ssh -L 8080:localhost:80 user_name@ip_address
 ```
-On the local computer system, open a web browser and type *localhost:8080* in the address bar, you should read Welcome to nginx!*
+On the local computer system, open a web browser and type *localhost:8080* in the address bar, you should read *Welcome to nginx!*
 
+### 2.7. Tunneling
+To increase security, we can change the port used by SSH to avoid brute-force attacks on the remote computer system. For example, we can change to port 2222.
+```
+# Open the SSH configuration file on the remote computer system
+sudo nano /etc/ssh/sshd_config
+```
+Add the line *Port 2222* above *#Port 22*
+```
+Port 2222
+#Port 22
+```
+Press CTRL+X, then Y, then ENTER to save the file with the new configuration.
+
+Restart SSH service :
+```
+sudo systemctl stop ssh && sudo systemctl disable ssh
+sudo systemctl enable ssh && sudo systemctl start ssh
+```
+**In the case of a VPS, you may need to open port 2222 with your hosting provider !**
+
+To connect to the remote computer system, use the new command line :
+```
+# SSH access via port 2222
+ssh -p 2222 user_name@ip_address
+```
+The previous one won't work anymore !
+
+For the port forwarding, the command line becomes :
+```
+ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
+```
 ## 3. Problems encountered and found solutions
+- Connection error
+- Nginx problem
+- 
 
 ## 4. Theory
 
