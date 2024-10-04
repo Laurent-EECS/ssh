@@ -324,12 +324,7 @@ ssh -L 8080:localhost:80 user_name@ip_address
 ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
 ```
 ## 4. Theory
-### 4.1. Step 1 : Authentication with Ed25519
-- **Key Generation :** You generate a pair of Ed25519 keys (public and private) for authentication.
-- **Public Key Transfer :** You transfer your Ed25519 public key to the server. This public key is stored in the ~/.ssh/authorized_keys file on the server.
-- **Authentication :** During the connection, the client signs a message with its Ed25519 private key. The server verifies this signature using the stored Ed25519 public key. If the signature is valid, the authentication is successful.
-
-### 4.2. Step 2 : Calculation of the Shared Key
+### 4.1. Step 1 : Calculation of the Shared Key
 - **Generation of Ephemeral Keys :**
 
 **Client :** Generates a pair of ephemeral keys (public and private) for the key exchange.
@@ -348,8 +343,16 @@ The server sends its ephemeral public key to the client.
 
 The shared key is the same for both parties, but it is never transmitted directly over the network.
 
+### 4.2. Step 2 : Derivation of the Session Key
+- **Key Derivation Function (KDF) :** The shared key is used as the basis for deriving the session key. This derivation can include additional steps to enhance security, such as the use of hash functions or key derivation functions (KDF).
+- **Derivation Material :** In addition to the shared key, other information may be used to derive the session key, such as nonces (random numbers) and session identifiers.
 
+### 4.3 Step 3 : Authentication with Ed25519
+During the connection, the client signs a message with its Ed25519 private key. The server verifies this signature using the stored Ed25519 public key. If the signature is valid, the authentication is successful.
 
+### 4.4. Step 4 : Using the Session Key
+- **Symmetric Encryption :** The derived session key is used to encrypt and decrypt the data exchanged between the client and the server. Symmetric encryption algorithms like AES (Advanced Encryption Standard) are used for this task.
+- **Data Integrity :** The session key is also used to generate message authentication codes (MAC) that ensure the integrity of the exchanged data.
 
 ## 5. Conclusion
 
