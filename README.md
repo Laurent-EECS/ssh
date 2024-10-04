@@ -324,10 +324,24 @@ ssh -L 8080:localhost:80 user_name@ip_address
 ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
 ```
 ## 4. Theory
-### 4.1. Authentication with Ed25519
-- **Key Generation** : You generate a pair of Ed25519 keys (public and private) for authentication.
-- **Public Key Transfer** : You transfer your Ed25519 public key to the server. This public key is stored in the ~/.ssh/authorized_keys file on the server.
-- **Authentication** : During the connection, the client signs a message with its Ed25519 private key. The server verifies this signature using the stored Ed25519 public key. If the signature is valid, the authentication is successful.
+### 4.1. Step 1 : Authentication with Ed25519
+- **Key Generation :** You generate a pair of Ed25519 keys (public and private) for authentication.
+- **Public Key Transfer :** You transfer your Ed25519 public key to the server. This public key is stored in the ~/.ssh/authorized_keys file on the server.
+- **Authentication :** During the connection, the client signs a message with its Ed25519 private key. The server verifies this signature using the stored Ed25519 public key. If the signature is valid, the authentication is successful.
+
+### 4.2. Step 2 : Calculation of the Shared Key
+- **Generation of Ephemeral Keys :**
+**Client :** Generates a pair of ephemeral keys (public and private) for the key exchange.
+**Server :** Also generates a pair of ephemeral keys (public and private) for the key exchange.
+- **Exchange of Public Keys :**
+The client sends its ephemeral public key to the server.
+The server sends its ephemeral public key to the client.
+- **Calculation of the Shared Key :**
+**Client :** Uses its ephemeral private key and the server's ephemeral public key to calculate the shared key.
+**Server :** Uses its ephemeral private key and the client's ephemeral public key to calculate the shared key.
+The shared key is the same for both parties, but it is never transmitted directly over the network.
+
+
 
 
 ## 5. Conclusion
