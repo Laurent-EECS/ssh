@@ -330,11 +330,13 @@ ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
 **Client :** Generates a pair of ephemeral keys (public and private) for the key exchange.
 
 **Server :** Also generates a pair of ephemeral keys (public and private) for the key exchange.
+
 - **Exchange of Public Keys :**
 
 The client sends its ephemeral public key to the server.
 
 The server sends its ephemeral public key to the client.
+
 - **Calculation of the Shared Key :**
 
 **Client :** Uses its ephemeral private key and the server's ephemeral public key to calculate the shared key.
@@ -345,6 +347,7 @@ The shared key is the same for both parties, but it is never transmitted directl
 
 ### 4.2. Step 2 : Derivation of the Session Key
 - **Key Derivation Function (KDF) :** The shared key is used as the basis for deriving the session key. This derivation can include additional steps to enhance security, such as the use of hash functions or key derivation functions (KDF).
+- 
 - **Derivation Material :** In addition to the shared key, other information may be used to derive the session key, such as nonces (random numbers) and session identifiers.
 
 ### 4.3 Step 3 : Authentication with Ed25519
@@ -352,6 +355,7 @@ During the connection, the client signs a message with its Ed25519 private key. 
 
 ### 4.4. Step 4 : Using the Session Key
 - **Symmetric Encryption :** The derived session key is used to encrypt and decrypt the data exchanged between the client and the server. Symmetric encryption algorithms like AES (Advanced Encryption Standard) are used for this task.
+- 
 - **Data Integrity :** The session key is also used to generate message authentication codes (MAC) that ensure the integrity of the exchanged data.
 
 ## 5. Conclusion
