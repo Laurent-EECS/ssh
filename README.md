@@ -359,7 +359,14 @@ During the connection, the client signs a message with its Ed25519 private key. 
 - **Data Integrity :** The session key is also used to generate message authentication codes (MAC) that ensure the integrity of the exchanged data.
 
 ## 5. Conclusion
+The encryption method of SSH connections is essential to ensure the confidentiality, integrity, and authenticity of the exchanged data.
+
+Additional measures such as changing the port and using Fail2Ban contribute to strengthening this protection by reducing the risk of brute force attacks and limiting unauthorized connection attempts.
+
+Wireshark shows that the SSH protocol generates an extremely large number of packets due to its multi-stage encryption method. This increase in the number of exchanges may improve data confidentiality, as it makes data analysis more tedious.
 
 ## 6. Ressources
 - [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 - [Mistral AI](https://mistral.ai/fr/)
+
+: 0x9e4e736a6eb42397be3d084956d623963e57ad38:
