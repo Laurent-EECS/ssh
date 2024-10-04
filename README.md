@@ -273,12 +273,43 @@ sudo fail2ban-server status sshd
 ```
 To re-authorise an IP address :
 ```
-sudo fail2ban-client set sshd unbanip IP_number
+sudo fail2ban-client set sshd unbanip IP_address
 ```
+### 2.10. Wireshark
+Wireshark is a packet analyser. You can run it on your local computer system.
+```
+# Install Wireshark
+sudo apt-get update
+sudo apt-get install wireshark
+# Run Wireshark
+sudo wireshark
+```
+Select a network interface for analysis, such as eth0 (ethernet), wlan0 (Wifi).
+```
+# Identify network interfaces
+ip link
+```
+You can filter results at the top of the Wireshark window.
+Try tcp.port==2222 to analyse your SSH connection and communication.
+Try to connect on your remote computer system via port 2222 and see how Wireshark reacts.
+
+To analyse what happens on the remote computer, you can install tshark (Wireshark for Terminal) :
+```
+sudo apt-get update
+sudo apt-get install tshark
+sudo tshark
+```
+CTRL+C to stop tshark !
+You can filter packets with the options below :
+```
+sudo tshark -f "port 2222"
+sudo tshark -Y "tcp.port==2222"
+```
+Work in progress ^^'
+
 ## 3. Problems encountered and found solutions
 - Connection error
 - Nginx problem
-- 
 
 ## 4. Theory
 
