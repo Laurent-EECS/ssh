@@ -308,10 +308,27 @@ sudo tshark -Y "tcp.port==2222"
 Work in progress ^^'
 
 ## 3. Problems encountered and found solutions
-- Connection error
-- Nginx problem
+### 3.1. Disable access via the user account password
+After modifying the sshd configuration file to disable access via the user account password, and while the SSH keys have been generated and copied to the remote computer system, the connection is still possible via a third-party computer !
 
+The problem can be solved with the following commands :
+```
+sudo systemctl stop ssh && sudo systemctl disable ssh
+sudo systemctl enable ssh && sudo systemctl start ssh
+```
+### 3.2. Port forwarding
+By configuring the various layers of security to access the remote machine (SSH, UFW, host firewall), the port forwarding from local port 8080 to remote port 80 may fail.
+Run the command again to solve the problem !
+```
+ssh -L 8080:localhost:80 user_name@ip_address
+ssh -L 8080:localhost:80 -p 2222 user_name@ip_address
+```
 ## 4. Theory
+### 4.1. Authentication with Ed25519
+- **Key Generation** : You generate a pair of Ed25519 keys (public and private) for authentication.
+- **Public Key Transfer** : You transfer your Ed25519 public key to the server. This public key is stored in the ~/.ssh/authorized_keys file on the server.
+- **Authentication** : During the connection, the client signs a message with its Ed25519 private key. The server verifies this signature using the stored Ed25519 public key. If the signature is valid, the authentication is successful.
+
 
 ## 5. Conclusion
 
